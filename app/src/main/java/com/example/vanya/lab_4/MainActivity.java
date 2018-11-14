@@ -18,9 +18,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Spinner spinner;
     Spinner spinner2;
     EditText editText;
+    public static Toast toast;
     public static TextView textView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Toast toast = Toast.makeText(getApplicationContext(),
+                "JSON FAILED", Toast.LENGTH_SHORT);
         Log.d("stroka", "KAKASHKA");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
