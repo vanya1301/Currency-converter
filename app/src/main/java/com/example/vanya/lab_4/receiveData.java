@@ -26,9 +26,11 @@ public class receiveData extends AsyncTask<Void,Void,Void>  {
     String dataParsed;
     String singleParsed = "";
     String JS = "JSON FAILED";
+    String json;
+    double result;
     @Override
     protected Void doInBackground(Void... voids) {
-        String json;
+
 
             try {
 
@@ -53,12 +55,20 @@ public class receiveData extends AsyncTask<Void,Void,Void>  {
                 JSONObject USD = currency.getJSONObject("USD");
                 JSONObject RUB = currency.getJSONObject("RUB");
                 Currency EUR1 = new Currency(EUR.getDouble("ask"),EUR.getDouble("bid"));
+                Currency USD1 = new Currency(USD.getDouble("ask"),USD.getDouble("bid"));
+                Currency RUB1 = new Currency(RUB.getDouble("ask"),RUB.getDouble("bid"));
                 String eu = "EURO "+EUR1.getAsk()+" "+EUR1.getBid();
                 Log.e("EUR1",eu);
-                //Currency EUR = new Currency(currency.getJSONObject(""))
+                String us = "DOLLAR "+USD1.getAsk()+" "+USD1.getBid();
+                Log.e("USD1",us);
+                String ru = "RUB "+RUB1.getAsk()+" "+RUB1.getBid();
+                Log.e("RUB1",ru);
+                json = MainActivity.editText.getText().toString();
+                result = EUR1.ask * Double.parseDouble(json);
+                json = result+"";
 
 
-                for (int i = 0; i < JA.length(); i++) {
+               /* for (int i = 0; i < JA.length(); i++) {
                     JSONObject J = (JSONObject) JA.get(i);
 
                     line = J.getString("ask");
@@ -70,7 +80,7 @@ public class receiveData extends AsyncTask<Void,Void,Void>  {
                         Log.e("A-BANK", "AVAILABLE");
 
                     }
-                }
+                }*/
 
 
             } catch (IOException e) {
@@ -89,7 +99,6 @@ public class receiveData extends AsyncTask<Void,Void,Void>  {
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
-        MainActivity.textView.setText(this.data);
-        //Log.d("stroka", this.data);
+        MainActivity.textView.setText(this.json);
     }
 }

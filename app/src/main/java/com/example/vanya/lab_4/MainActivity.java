@@ -17,9 +17,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button button;
     Spinner spinner;
     Spinner spinner2;
-    EditText editText;
     public static Toast toast;
     public static TextView textView;
+    public static EditText editText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Toast toast = Toast.makeText(getApplicationContext(),
