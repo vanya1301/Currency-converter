@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button:
                 if(editText.getText().length() == 0)
                 {
-                    Toast.makeText(getApplicationContext(),"Fell the field!!!",
+                    Toast.makeText(getApplicationContext(),"Fill the field!!!",
                             Toast.LENGTH_SHORT).show();
                     break;
                 }
